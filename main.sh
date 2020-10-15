@@ -15,7 +15,7 @@ echo
 echo "输入验证码"
 read verifyCode
 
-# 登录
+# 验证码登录
 # para (Method: POST) [
 #     phone = <PhoneNumber>
 #     code = <VerifyCode>
@@ -27,6 +27,23 @@ read verifyCode
 # ]
 curl -X POST 'http://app.zhidiantianxia.cn/api/Login/phone?phone='${phone}'&code='${verifyCode}'&mobileSystem=9&appVersion=1.6.1&mobileVersion=Nokia9&deviceToken='${deviceToken}'&pushToken='${phone}
 echo
+
+# => 获取 Response.data => 提交体温 axy-token
+
+# 密码登录
+# para (Method: POST) [
+#     phone = <PhoneNumber>
+#     password = <Password> (default. 111111 加密？？？)
+#     mobileSystem = <AndroidVersion> (eg. 8 || 9 || 10)
+#     appVersion = 1.6.1
+#     mobileVersion = <PhoneBrand> (eg. Nokia9 || Mi10 || OnePlue7)
+#     deviceToken = <DeviceCode> (eg. 13065ffa4ebf829c0bf)
+#     pushToken = <PhoneNumber>
+# ]
+curl -X POST 'http://app.zhidiantianxia.cn.api/Login/pwd?phone='${phone}'&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken='${deviceToken}'&pushToken='${phone}
+echo
+
+# => 获取 Response.data => 提交体温 axy-token
 
 # 提交今日体温
 # para (Method: POST) [
