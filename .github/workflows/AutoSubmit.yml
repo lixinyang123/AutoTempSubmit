@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: Auto Submit
         run: |
-          apt install curl -y
-          apt install jq -y
-          bash submit.sh
+          sudo apt install curl -y
+          sudo apt install jq -y
+          sudo bash submit.sh
