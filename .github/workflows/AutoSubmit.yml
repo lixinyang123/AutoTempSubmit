@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a multi-line script
+      - name: Auto Submit
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          apt install curl -y
+          apt install jq -y
+          bash submit.sh

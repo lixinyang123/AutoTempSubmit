@@ -41,14 +41,8 @@ echo
 # token=$(curl -X POST "http://app.zhidiantianxia.cn.api/Login/pwd?phone=${phone}&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken=${deviceToken}&pushToken=${phone}" | jq -r .data)
 # echo
 
-# 提交今日体温
-# para (Method: POST) [
-#     axy-phone = <PhoneNumber>
-#     axy-token = <LoginResponse.data>
-# ]
-curl -X POST \
-	"http://zzife.zhidiantianxia.cn/api/study/health/mobile/temp/report" \
-	-H "Content-Type: application/json" \
-	-H "axy-phone: ${phone}" \
-	-H "axy-token: ${token}" \
-	-d "{\"temperature\": \"36.6\", \"health\": \"0\", \"abnormal\": \"\"}"
+# 个人信息写入
+echo "{
+    \"phone\": \"${phone}\",
+    \"token\": \"${token}\"
+}" > info.json
