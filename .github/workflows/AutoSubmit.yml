@@ -17,5 +17,5 @@ jobs:
         run: |
           sudo apt install curl -y
           sudo apt install jq -y
-          sudo bash ./submit.sh
           ls -a
+          sudo bash ./submit.sh
