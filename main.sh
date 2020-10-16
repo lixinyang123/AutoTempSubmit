@@ -25,7 +25,7 @@ read verifyCode
 #     deviceToken = <DeviceCode> (eg. 170976fa8a3b5568b17)
 #     pushToken = <PhoneNumber>
 # ]
-curl -X POST 'http://app.zhidiantianxia.cn/api/Login/phone?phone='${phone}'&code='${verifyCode}'&mobileSystem=9&appVersion=1.6.1&mobileVersion=Nokia9&deviceToken='${deviceToken}'&pushToken='${phone}
+token=$(curl -X POST 'http://app.zhidiantianxia.cn/api/Login/phone?phone='${phone}'&code='${verifyCode}'&mobileSystem=9&appVersion=1.6.1&mobileVersion=Nokia9&deviceToken='${deviceToken}'&pushToken='${phone} | jq -r .data)
 echo
 
 # => 获取 Response.data => 提交体温 axy-token
@@ -40,8 +40,8 @@ echo
 #     deviceToken = <DeviceCode> (eg. 13065ffa4ebf829c0bf)
 #     pushToken = <PhoneNumber>
 # ]
-curl -X POST 'http://app.zhidiantianxia.cn.api/Login/pwd?phone='${phone}'&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken='${deviceToken}'&pushToken='${phone}
-echo
+# curl -X POST 'http://app.zhidiantianxia.cn.api/Login/pwd?phone='${phone}'&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken='${deviceToken}'&pushToken='${phone}
+# echo
 
 # => 获取 Response.data => 提交体温 axy-token
 
