@@ -19,4 +19,6 @@ jobs:
           sudo apt install jq -y
           ls -a
           dirs
+          cd ..
+          ls -a
           sudo bash submit.sh
