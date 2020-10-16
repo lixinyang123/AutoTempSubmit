@@ -1,8 +1,12 @@
-name: CI
+name: AutoSubmit
 
 on:
   schedule:
     - cron: '0 6,12,18 * * *'
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
