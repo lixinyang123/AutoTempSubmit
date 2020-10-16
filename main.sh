@@ -9,7 +9,7 @@ read phone
 #     phone = <PhoneNumber>
 #     type = 4
 # ]
-curl -X POST 'http://app.zhidiantianxia.cn/api/common/sendVerifyCodeCheck?phone='${phone}'&type=4'
+curl -X POST "http://app.zhidiantianxia.cn/api/common/sendVerifyCodeCheck?phone=${phone}&type=4"
 echo
 
 echo "输入验证码"
@@ -25,7 +25,7 @@ read verifyCode
 #     deviceToken = <DeviceCode> (eg. 170976fa8a3b5568b17)
 #     pushToken = <PhoneNumber>
 # ]
-token=$(curl -X POST 'http://app.zhidiantianxia.cn/api/Login/phone?phone='${phone}'&code='${verifyCode}'&mobileSystem=9&appVersion=1.6.1&mobileVersion=Nokia9&deviceToken='${deviceToken}'&pushToken='${phone} | jq -r .data)
+token=$(curl -X POST "http://app.zhidiantianxia.cn/api/Login/phone?phone=${phone}&code=${verifyCode}&mobileSystem=9&appVersion=1.6.1&mobileVersion=Nokia9&deviceToken=${deviceToken}&pushToken=${phone}" | jq -r .data)
 echo
 
 # => 获取 Response.data => 提交体温 axy-token
@@ -40,7 +40,7 @@ echo
 #     deviceToken = <DeviceCode> (eg. 13065ffa4ebf829c0bf)
 #     pushToken = <PhoneNumber>
 # ]
-# curl -X POST 'http://app.zhidiantianxia.cn.api/Login/pwd?phone='${phone}'&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken='${deviceToken}'&pushToken='${phone}
+# curl -X POST "http://app.zhidiantianxia.cn.api/Login/pwd?phone=${phone}&password=111111&mobileSystem=9&appVersion=1.6.1&mobileVersion=RMX&deviceToken=${deviceToken}&pushToken=${phone}"
 # echo
 
 # => 获取 Response.data => 提交体温 axy-token
@@ -51,7 +51,8 @@ echo
 #     axy-token = <LoginResponse.data>
 # ]
 curl -X POST \
-	'http://zzife.zhidiantianxia.cn/api/study/health/mobile/temp/report' \
-	-H 'axy-phone': ${phone} \
-	-H 'axy-token': ${token} \
-	-d '"{\r\n  \"temperature\": \"36.6\",\r\n  \"health\": \"0\",\r\n  \"abnormal\": \"\"\r\n}"'
+	"http://zzife.zhidiantianxia.cn/api/study/health/mobile/temp/report" \
+	-H "Content-Type: application/json" \
+	-H "axy-phone: ${phone}" \
+	-H "axy-token: ${token}" \
+	-d "{\"temperature\": \"36.6\", \"health\": \"0\", \"abnormal\": \"\"}"
