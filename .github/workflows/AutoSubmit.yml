@@ -3,7 +3,7 @@ name: AutoSubmit
 on:
   schedule:
     - cron: '10 4,7,10,22 * * *'
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
