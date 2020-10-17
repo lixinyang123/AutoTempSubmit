@@ -2,7 +2,7 @@ name: AutoSubmit
 
 on:
   schedule:
-    - cron: '* 6,12,18 * * *'
+    - cron: '10 4,7,10,22 * * *'
   push:
     branches: [ main ]
   pull_request:
