@@ -27,7 +27,4 @@ if [ -f "info.json" ]; then
 
 else
 	echo "请先执行 login.sh 登录"
-	
-	# 终止 Github Action 发送错误邮件
-	bash ./error.sh
 fi
