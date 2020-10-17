@@ -16,6 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Auto Submit
         run: |
+          ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          date
           sudo apt install curl -y
           sudo apt install jq -y
           sudo bash ./submit.sh
