@@ -17,7 +17,6 @@ jobs:
       - name: Auto Submit
         run: |
           sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-          date
           sudo apt install curl -y
           sudo apt install jq -y
           sudo bash ./submit.sh
