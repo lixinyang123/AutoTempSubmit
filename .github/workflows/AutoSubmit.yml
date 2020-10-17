@@ -10,8 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-            fetch-depth: 0
+
       - name: Auto Submit
         run: |
           sudo apt install curl -y
